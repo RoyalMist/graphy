@@ -180,6 +180,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: elixir-alpine-release
+          path: ./target
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -230,6 +231,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: elixir-alpine-release
+          path: ./target
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
