@@ -1,6 +1,5 @@
 FROM alpine:3.13 as app
 WORKDIR /app
-COPY apps/bazzile_cloud/dkim/private-key.pem .
 ENV TIMEZONE "Europe/Zurich"
 ENV SECRET_KEY "{secret_key}"
 RUN apk update && \
