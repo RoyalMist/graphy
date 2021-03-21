@@ -10,8 +10,8 @@ RUN apk update && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     chown nobody:nobody /app
-USER nobody:nobody
 COPY --chown=nobody:nobody ./target .
+USER nobody:nobody
 EXPOSE 4000
 ENTRYPOINT ["bin/graphy"]
 CMD ["start"]
