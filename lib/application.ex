@@ -6,7 +6,8 @@ defmodule Graphy.Application do
     children = [
       GraphyWeb.Telemetry,
       {Phoenix.PubSub, name: Graphy.PubSub},
-      GraphyWeb.Endpoint
+      GraphyWeb.Endpoint,
+      Graphy.UserBucket
     ]
 
     opts = [strategy: :one_for_one, name: Graphy.Supervisor]
