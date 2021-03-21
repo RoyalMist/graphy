@@ -13,5 +13,5 @@ RUN apk update && \
 USER nobody:nobody
 COPY --chown=nobody:nobody ./target .
 EXPOSE 4000
-ENTRYPOINT ["bin/bazzile_api"]
+ENTRYPOINT ["bin/graphy"]
 CMD ["start"]
