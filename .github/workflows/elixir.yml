@@ -160,12 +160,12 @@ jobs:
       - name: Release
         run: mix release --quiet --path ./release
       - name: Tar Release
-        run: tar -cf release.tar ./release
+        run: tar -cf app.tar ./release
       - name: Archive Alpine Release
         uses: actions/upload-artifact@v2
         with:
           name: elixir-alpine-release
-          path: release.tar
+          path: app.tar
           retention-days: 1
 
   nightly:
