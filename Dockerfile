@@ -9,8 +9,8 @@ RUN apk update && \
     ncurses-libs \
     tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
-    echo "${TIMEZONE}" > /etc/timezone
-# tar -xf target.tar && \
+    echo "${TIMEZONE}" > /etc/timezone && \
+    tar -xf release.tar
 USER nobody:nobody
 EXPOSE 4000
 # ENTRYPOINT ["bin/graphy"]
