@@ -13,6 +13,5 @@ RUN apk update && \
     chown -R nobody:nobody /opt/release
 USER nobody:nobody
 EXPOSE 4000
-# ENTRYPOINT ["bin/graphy"]
-# CMD ["start"]
-CMD tail -f /dev/null
+ENTRYPOINT ["/opt/release/bin/graphy"]
+CMD ["start"]
