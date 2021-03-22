@@ -2,7 +2,6 @@ FROM alpine:3.13 as app
 COPY release.tar .
 ENV TIMEZONE "Europe/Zurich"
 ENV SECRET_KEY "{secret_key}"
-ENV APP_NAME = "graphy"
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache \
@@ -12,9 +11,9 @@ RUN apk update && \
     echo "${TIMEZONE}" > /etc/timezone && \
     tar -xf release.tar -C /opt && \
     rm release.tar && \
-    mv /opt/release /opt/${APP_NAME} && \
-    chown -R nobody:nobody /opt/${APP_NAME}
+    mv /opt/release /opt/graphy && \
+    chown -R nobody:nobody /opt/graphy
 USER nobody:nobody
 EXPOSE 4000
-ENTRYPOINT /opt/${APP_NAME}/bin/graphy
-CMD start
+ENTRYPOINT ["/opt/graphy/bin/graphy"]
+CMD ["start"]
