@@ -98,21 +98,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       MIX_ENV: test
-    services:
-      postgres:
-        image: postgis/postgis
-        env:
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
     steps:
-      - name: Install packages
-        run: sudo apt update && sudo apt install imagemagick webp
       - name: Checkout
         uses: actions/checkout@v2
         with:
