@@ -10,7 +10,7 @@ RUN apk update && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     tar -xf release.tar -C /opt && rm release.tar && \
-    chown -R nobody:nobody /opt/app
+    chown -R nobody:nobody /opt/release
 USER nobody:nobody
 EXPOSE 4000
 # ENTRYPOINT ["bin/graphy"]
