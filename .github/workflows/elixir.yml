@@ -11,6 +11,7 @@ on:
 env:
   ELIXIR_VERSION: 1.11
   OTP_VERSION: 23.2
+  DOCKER_IMAGE: royalmist/graphy
 
 jobs:
   test-dependencies:
@@ -190,7 +191,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: royalmist/graphy:latest
+          tags: ${{ env.DOCKER_IMAGE }}:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image digest
@@ -240,7 +241,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: royalmist/graphy:${{ steps.tagName.outputs.tag }}
+          tags: ${{ env.DOCKER_IMAGE }}:${{ steps.tagName.outputs.tag }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image digest
