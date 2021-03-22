@@ -158,9 +158,9 @@ jobs:
         if: steps.mix-prod-cache.outputs.cache-hit != 'true'
         run: mix do local.hex --force, local.rebar --force, deps.get --only prod, deps.compile
       - name: Release
-        run: mix release --quiet --path ./release
+        run: mix release --quiet --path ./app
       - name: Tar Release
-        run: tar -cf app.tar ./release
+        run: tar -cf app.tar ./app
       - name: Archive Alpine Release
         uses: actions/upload-artifact@v2
         with:
