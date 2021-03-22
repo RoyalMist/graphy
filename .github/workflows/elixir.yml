@@ -185,7 +185,7 @@ jobs:
       - name: Display befor structure
         run: ls -R
       - name: Untar Release
-        run: tar -xvf target.tar --directory ./target
+        run: mkdir ./target && tar -xvf target.tar -C ./target
       - name: Display structure
         run: ls -R
       - name: Display structure of downloaded files
