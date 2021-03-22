@@ -160,7 +160,7 @@ jobs:
       - name: Release
         run: mix release --quiet --path ./target
       - name: Tar Release
-        run: tar -cvf target.tar ./target
+        run: tar -cf target.tar ./target
       - name: Archive Alpine Release
         uses: actions/upload-artifact@v2
         with:
@@ -183,7 +183,7 @@ jobs:
         with:
           name: elixir-alpine-release
       - name: Untar Release
-        run: mkdir ./target && tar -xvf target.tar -C ./target
+        run: mkdir ./target && tar -xf target.tar -C ./target
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:

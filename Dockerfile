@@ -15,5 +15,4 @@ USER nobody:nobody
 EXPOSE 4000
 # ENTRYPOINT ["bin/graphy"]
 # CMD ["start"]
-ENTRYPOINT ["tail"]
-CMD ["-f","/dev/null"]
+CMD tail -f /dev/null
