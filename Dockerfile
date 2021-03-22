@@ -1,5 +1,5 @@
 FROM alpine:3.13 as app
-COPY app.tar .
+COPY release.tar .
 ENV TIMEZONE "Europe/Zurich"
 ENV SECRET_KEY "{secret_key}"
 RUN apk update && \
@@ -9,9 +9,9 @@ RUN apk update && \
     tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
-    tar -xf app.tar && rm app.tar
-# chown -R nobody:nobody /app
-# USER nobody:nobody
+    tar -xf release.tar -C /opt && rm release.tar && \
+    chown -R nobody:nobody /opt/app
+USER nobody:nobody
 EXPOSE 4000
 # ENTRYPOINT ["bin/graphy"]
 # CMD ["start"]
