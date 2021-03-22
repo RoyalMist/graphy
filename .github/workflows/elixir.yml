@@ -182,6 +182,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: elixir-alpine-release
+      - name: Display befor structure
+        run: ls -R
       - name: Untar Release
         run: tar -xvf target.tar -C ./target
       - name: Display structure
