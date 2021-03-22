@@ -13,5 +13,7 @@ RUN apk update && \
 COPY --chown=nobody:nobody ./target .
 USER nobody:nobody
 EXPOSE 4000
-ENTRYPOINT ["bin/graphy"]
-CMD ["start"]
+# ENTRYPOINT ["bin/graphy"]
+# CMD ["start"]
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
