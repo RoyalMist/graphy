@@ -9,9 +9,9 @@ RUN apk update && \
     tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
-    tar -xf app.tar && rm app.tar && \
-    chown -R nobody:nobody /app
-USER nobody:nobody
+    tar -xf app.tar && rm app.tar
+# chown -R nobody:nobody /app
+# USER nobody:nobody
 EXPOSE 4000
 # ENTRYPOINT ["bin/graphy"]
 # CMD ["start"]
