@@ -15,5 +15,5 @@ RUN apk update && \
     chown -R nobody:nobody /opt/graphy
 USER nobody:nobody
 EXPOSE 4000
-ENTRYPOINT ["/opt/graphy/bin/graphy"]
+ENTRYPOINT ["/opt/graphy/bin/api"]
 CMD ["start"]

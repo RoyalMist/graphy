@@ -10,6 +10,8 @@ defmodule Graphy.MixProject do
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
+      default_release: :api,
+      releases: releases(),
       deps: deps()
     ]
   end
@@ -23,6 +25,15 @@ defmodule Graphy.MixProject do
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
+
+  defp releases do
+    [
+      api: [
+        include_executables_for: [:unix],
+        path: "release"
+      ]
+    ]
+  end
 
   defp deps do
     [

@@ -132,7 +132,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup
-        run: apk add build-base
+        run: |
+          apk add --no-cache tar build-base
+          mix do local.hex --force, local.rebar --force
       - name: Retrieve Cached Dependencies
         uses: actions/cache@v2
         id: mix-prod-cache
@@ -145,7 +147,7 @@ jobs:
         if: steps.mix-prod-cache.outputs.cache-hit != 'true'
         run: mix do local.hex --force, local.rebar --force, deps.get --only prod, deps.compile
       - name: Release
-        run: mix release --quiet --path ./release
+        run: mix release
       - name: Tar Release
         run: tar -cf release.tar ./release
       - name: Archive Alpine Release
