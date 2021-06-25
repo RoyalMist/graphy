@@ -9,8 +9,8 @@ on:
     branches: [master]
 
 env:
-  ELIXIR_VERSION: 1.11
-  OTP_VERSION: 23.2
+  ELIXIR_VERSION: 1.12
+  OTP_VERSION: 24.0.2
   DOCKER_IMAGE: royalmist/graphy
 
 jobs:
@@ -123,7 +123,7 @@ jobs:
   build:
     name: Production Build
     runs-on: ubuntu-20.04
-    container: elixir:1.11-alpine
+    container: elixir:${{ env.ELIXIR_VERSION }}-alpine
     env:
       MIX_ENV: prod
     steps:
