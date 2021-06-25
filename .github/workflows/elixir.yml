@@ -123,7 +123,7 @@ jobs:
   build:
     name: Production Build
     runs-on: ubuntu-20.04
-    container: elixir:${{ env.ELIXIR_VERSION }}-alpine
+    container: elixir:1.12-alpine
     env:
       MIX_ENV: prod
     steps:
