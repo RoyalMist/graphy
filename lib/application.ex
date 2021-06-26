@@ -7,7 +7,8 @@ defmodule Graphy.Application do
       GraphyWeb.Telemetry,
       {Phoenix.PubSub, name: Graphy.PubSub},
       GraphyWeb.Endpoint,
-      Graphy.UserBucket
+      Graphy.UserBucket,
+      {Absinthe.Subscription, [GraphyWeb.Endpoint]}
     ]
 
     opts = [strategy: :one_for_one, name: Graphy.Supervisor]

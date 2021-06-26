@@ -12,5 +12,6 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :phoenix, :json_library, Jason
+config :absinthe, schema: GraphyWeb.Graphql.Schema
 
 import_config "#{Mix.env()}.exs"
